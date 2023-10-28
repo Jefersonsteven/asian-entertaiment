@@ -1,0 +1,80 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum StreamingProvider {
+  disneyPlus
+  netflix
+  amazonPrime
+  hbo
+  hulu
+  appleTv
+  peacock
+  paramountPlus
+  youtube
+  doramasGo
+  rakutenViki
+  HiTV
+  weTV
+  youku
+  iqiyi
+  doramasPrincess
+  doramasflix
+}
+
+model User {
+  id        String     @id @default(uuid())
+  email     String     @unique
+  name      String?
+  lastName  String?
+  password  String
+  verified  Boolean    @default(false)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  List      List[]
+  Favorite  Favorite[]
+}
+
+model Link {
+  id                String            @id @default(uuid())
+  contentId         String
+  streamingProvider StreamingProvider
+  url               String
+}
+
+model ListItem {
+  id        String   @id @default(uuid())
+  listId    String
+  linkId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  List      List     @relation(fields: [listId], references: [id])
+  url       String
+}
+
+model List {
+  id        String     @id @default(uuid())
+  name      String
+  userId    String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  User      User       @relation(fields: [userId], references: [id])
+  ListItems ListItem[]
+}
+
+model Favorite {
+  id        String   @id @default(uuid())
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  User      User     @relation(fields: [userId], references: [id])
+  url       String
+}

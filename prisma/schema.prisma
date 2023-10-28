@@ -45,9 +45,18 @@ model User {
 
 model Link {
   id                String            @id @default(uuid())
-  contentId         String
+  linksId           String
   streamingProvider StreamingProvider
   url               String
+  Links             Links             @relation(fields: [linksId], references: [id])
+}
+
+model Links {
+  id        String   @id @default(uuid())
+  contentId String
+  urls      Link[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model ListItem {

@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
-    try {
-        const url = new URL(request.url);
-        const id = url.pathname.split('/').pop();
-        const type = url.searchParams.get('type');
+    const url = new URL(request.url);
+    const id = url.pathname.split('/').pop();
+    const type = url.searchParams.get('type');
 
+    try {
         const options = {
             method: 'GET',
             headers: {
@@ -14,10 +14,9 @@ export async function GET(request: NextRequest) {
             }
         };
         
-
-        const contentDetail = await fetch(`https://api.themoviedb.org/3/${type}/${id}?language=en-US`, options)
-        const contentDetailCredits = await fetch(`https://api.themoviedb.org/3/${type}/${id}/credits?language=en-US`, options)
-        const contentDetailVideos = await fetch(`https://api.themoviedb.org/3/${type}/${id}/videos?language=en-US`, options)
+        const contentDetail = await fetch(`${process.env.API_TMDB_URL}/${type}/${id}?language=en-US`, options)
+        const contentDetailCredits = await fetch(`${process.env.API_TMDB_URL}/${type}/${id}/credits?language=en-US`, options)
+        const contentDetailVideos = await fetch(`${process.env.API_TMDB_URL}/${type}/${id}/videos?language=en-US`, options)
 
         const response = {
             content: await contentDetail.json(),
@@ -27,9 +26,9 @@ export async function GET(request: NextRequest) {
 
         return NextResponse.json(response);
     } catch (error) {
-        return {
+        return NextResponse.json({
             message: 'Error in the server',
             error
-        }
+        })
     }
 }

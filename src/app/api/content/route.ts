@@ -4,6 +4,16 @@ const API_TMDB_URL = process.env.API_TMDB_URL;
 const API_TMDB_KEY = process.env.API_TMDB_KEY;
 
 export async function GET(request: NextRequest) {
+    const url = new URL(request.url);
+    const params = {
+        sort: url.searchParams.get('sort'),
+        page: url.searchParams.get('page'),
+        country: url.searchParams.get('country'),
+        type: url.searchParams.get('type'),
+        genres: url.searchParams.get('genres'),
+        status: url.searchParams.get('status')
+    };
+
     try {
         const options = {
             method: 'GET',
@@ -12,16 +22,6 @@ export async function GET(request: NextRequest) {
               Authorization: `Bearer ${API_TMDB_KEY}`
             }
         };
-
-        const url = new URL(request.url);
-        const params = {
-            sort: url.searchParams.get('sort'),
-            page: url.searchParams.get('page'),
-            country: url.searchParams.get('country'),
-            type: url.searchParams.get('type'),
-            genres: url.searchParams.get('genres'),
-            status: url.searchParams.get('status')
-        }
 
         const responsePrincipal = await fetch(`${API_TMDB_URL}/discover/${params.type || 'tv'}?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${params.page || 1}&sort_by=${params.sort || 'popularity.desc'}&with_origin_country=${params.country || 'KR'}${params.genres ? `&with_genres=${params.genres}` : ''}${params.status ? `&with_status${params.status}` : ''}`, options)
         const dataPrincipal = await responsePrincipal.json();

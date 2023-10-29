@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 const API_TMDB_URL = process.env.API_TMDB_URL;
 const API_TMDB_KEY = process.env.API_TMDB_KEY;
 
-export async function POST(request: NextRequest) {
+export async function GET(request: NextRequest) {
     try {
         const options = {
             method: 'GET',

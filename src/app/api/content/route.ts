@@ -11,7 +11,8 @@ export async function GET(request: NextRequest) {
         country: url.searchParams.get('country'),
         type: url.searchParams.get('type'),
         genres: url.searchParams.get('genres'),
-        status: url.searchParams.get('status')
+        status: url.searchParams.get('status'),
+        limit: url.searchParams.get('limit')
     };
 
     try {
@@ -27,15 +28,28 @@ export async function GET(request: NextRequest) {
         const dataPrincipal = await responsePrincipal.json();
 
         if(!params.country) {
-            const responseCN = await fetch(`${API_TMDB_URL}/discover/movie?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${params.page || 1}&sort_by=${params.sort || 'popularity.desc'}&with_origin_country=${params.country || 'CN'}${params.genres ? `&with_genres=${params.genres}` : ''}`, options)
-            const responseTH = await fetch(`${API_TMDB_URL}/discover/movie?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${params.page || 1}&sort_by=${params.sort || 'popularity.desc'}&with_origin_country=${params.country || 'TH'}${params.genres ? `&with_genres=${params.genres}` : ''}`, options)
+            const responseCN = await fetch(`${API_TMDB_URL}/discover/movie?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${params.page || 1}&sort_by=${params.sort || 'popularity.desc'}&with_origin_country=CN${params.genres ? `&with_genres=${params.genres}` : ''}`, options)
+            const responseTH = await fetch(`${API_TMDB_URL}/discover/movie?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${params.page || 1}&sort_by=${params.sort || 'popularity.desc'}&with_origin_country=TH${params.genres ? `&with_genres=${params.genres}` : ''}`, options)
+            const responseJP = await fetch(`${API_TMDB_URL}/discover/movie?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${params.page || 1}&sort_by=${params.sort || 'popularity.desc'}&with_origin_country=JP${params.genres ? `&with_genres=${params.genres}` : ''}`, options)
+            const responseVN = await fetch(`${API_TMDB_URL}/discover/movie?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${params.page || 1}&sort_by=${params.sort || 'popularity.desc'}&with_origin_country=VN${params.genres ? `&with_genres=${params.genres}` : ''}`, options)
+            const responsePH = await fetch(`${API_TMDB_URL}/discover/movie?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${params.page || 1}&sort_by=${params.sort || 'popularity.desc'}&with_origin_country=PH${params.genres ? `&with_genres=${params.genres}` : ''}`, options)
+            const responseTW = await fetch(`${API_TMDB_URL}/discover/movie?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${params.page || 1}&sort_by=${params.sort || 'popularity.desc'}&with_origin_country=TW${params.genres ? `&with_genres=${params.genres}` : ''}`, options)
+            const responseID = await fetch(`${API_TMDB_URL}/discover/movie?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${params.page || 1}&sort_by=${params.sort || 'popularity.desc'}&with_origin_country=ID${params.genres ? `&with_genres=${params.genres}` : ''}`, options)
+            const responseHK = await fetch(`${API_TMDB_URL}/discover/movie?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${params.page || 1}&sort_by=${params.sort || 'popularity.desc'}&with_origin_country=HK${params.genres ? `&with_genres=${params.genres}` : ''}`, options)
             const dataCN = await responseCN.json();
             const dataTH = await responseTH.json();
+            const dataJP = await responseJP.json();
+            const dataVN = await responseVN.json();
+            const dataPH = await responsePH.json();
+            const dataTW = await responseTW.json();
+            const dataID = await responseID.json();
+            const dataHK = await responseHK.json();
+
             const data = {
                 page: dataPrincipal.page,
-                results: [...dataPrincipal.results, ...dataCN.results, ...dataTH.results].sort((a, b) => b.popularity - a.popularity),
-                total_pages: dataPrincipal.total_pages + dataCN.total_pages + dataTH.total_pages,
-                total_results: dataPrincipal.total_results + dataCN.total_results + dataTH.total_results
+                results: [...dataPrincipal.results, ...dataCN.results, ...dataTH.results, ...dataJP.results, ...dataVN.results, ...dataPH.results, ...dataTW.results, ...dataID.results, ...dataHK.results].sort((a, b) => b.popularity - a.popularity).slice(0, Number(params.limit) || 180),
+                total_pages: dataPrincipal.total_pages + dataCN.total_pages + dataTH.total_pages + dataJP.total_pages + dataVN.total_pages + dataPH.total_pages + dataTW.total_pages + dataID.total_pages + dataHK.total_pages,
+                total_results: dataPrincipal.total_results + dataCN.total_results + dataTH.total_results + dataJP.total_results + dataVN.total_results + dataPH.total_results + dataTW.total_results + dataID.total_results + dataHK.total_results
             };
             
             return NextResponse.json(data, { status: 200 })

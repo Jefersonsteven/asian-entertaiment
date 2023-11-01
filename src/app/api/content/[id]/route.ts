@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(request: NextRequest) {
+export async function GET(request: NextRequest, context: any) {
     const url = new URL(request.url);
-    const id = url.pathname.split('/').pop();
+    const id = context.params.id;
     const type = url.searchParams.get('type');
 
     try {

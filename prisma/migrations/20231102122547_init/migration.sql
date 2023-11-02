@@ -8,6 +8,7 @@ CREATE TABLE "User" (
     "name" TEXT,
     "lastName" TEXT,
     "password" TEXT NOT NULL,
+    "photo" TEXT,
     "verified" BOOLEAN NOT NULL DEFAULT false,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,

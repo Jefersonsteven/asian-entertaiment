@@ -1,4 +1,5 @@
 import comparePassword from "@/scripts/comparePassword";
+import { createTokenSession } from "@/scripts/tokenSession";
 import { getUser } from "@/scripts/user";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -14,8 +15,10 @@ export async function POST(request: NextRequest) {
         }
         
         if(user && await comparePassword(password, user.password)) {
+            const token = createTokenSession(user);
+            
             return NextResponse.json({
-                token: 'token',
+                token,
                 message: 'Login success',
             }, { status: 200 });
         } else {

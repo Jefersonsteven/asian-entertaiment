@@ -1,30 +1,41 @@
 import { prisma } from "@/app/lib/prisma";
 
 export async function createList(name: string, userId: string) {
-    const list = await prisma.list.create({
-        data: {
-            name,
-            userId,
-        },
-    })
-    return list;
+    try {
+        const list = await prisma.list.create({
+            data: {
+                name,
+                userId,
+            },
+        })
+        return list;
+    } catch (error) {
+        return error;
+    }
 }
 
 export async function getList(id: string) {
-    const list = await prisma.list.findUnique({
-        where: {
-            id,
-        },
-    })
-    
-    return list;
+    try {
+        const list = await prisma.list.findUnique({
+            where: {
+                id,
+            },
+        })
+        
+        return list;
+    } catch (error) {
+        return error;
+    }
 }
 
 export async function deleteList(id: string) {
-    const list = await prisma.list.delete({
-        where: {
-            id,
-        },
-    })
-    return list;
-}
+    try {
+        const list = await prisma.list.delete({
+            where: {
+                id,
+            },
+        })
+        return list;
+    } catch (error) {
+        return error;
+    }}

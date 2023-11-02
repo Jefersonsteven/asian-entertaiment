@@ -14,8 +14,12 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
-    const body = await request.json();
-    const { listId } = body;
+    const url = new URL(request.url);
+    const listId = url.searchParams.get("listId");
+    console.log(listId);
+    
+
+    if(!listId) return NextResponse.json({ message: "ListId not found" }, { status: 400 });
 
     try {
         const list = await getList(listId);

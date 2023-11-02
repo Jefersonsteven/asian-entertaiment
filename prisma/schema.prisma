@@ -63,11 +63,12 @@ model Links {
 model ListItem {
   id        String   @id @default(uuid())
   listId    String
-  linkId    String
+  contentId String
+  name      String
+  image     String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   List      List     @relation(fields: [listId], references: [id])
-  url       String
 }
 
 model List {
@@ -83,8 +84,10 @@ model List {
 model Favorite {
   id        String   @id @default(uuid())
   userId    String
+  contentId String
+  name      String
+  image     String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   User      User     @relation(fields: [userId], references: [id])
-  url       String
 }

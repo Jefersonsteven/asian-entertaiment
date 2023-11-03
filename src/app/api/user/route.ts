@@ -1,4 +1,4 @@
-import { deleteUser, getUser, updateUser } from "@/scripts/user";
+import { deleteUser, getUser, getUserComplete, updateUser } from "@/scripts/user";
 import { NextRequest, NextResponse } from "next/server";
 
 
@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
     if(!email) return
     
     try {
-        const user = await getUser(email);
+        const user = await getUserComplete(email);
         return NextResponse.json({
             data: user,
             message: "User retrieved successfully",

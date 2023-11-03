@@ -40,8 +40,8 @@ model User {
   verified  Boolean    @default(false)
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
-  List      List[]
-  Favorite  Favorite[]
+  lists     List[]
+  favorites Favorite[]
 }
 
 model Link {
@@ -78,7 +78,7 @@ model List {
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
   User      User       @relation(fields: [userId], references: [id])
-  ListItems ListItem[]
+  items     ListItem[]
 }
 
 model Favorite {

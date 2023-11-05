@@ -16,4 +16,17 @@ export async function creatItemList(listId: string, contentId: string, name: str
     } catch (error) {
         return error;
     }
-}   
+} 
+
+export async function deleteItemList(id: string) {
+    try {
+        const listItem = await prisma.listItem.delete({
+            where: {
+                id
+            }
+        })
+        return listItem;
+    } catch (error) {
+        return error;
+    }
+}

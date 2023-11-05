@@ -31,29 +31,21 @@ export async function getUser(email: string) {
     }
 }
 
-export async function getUserComplete(email: string) {
+export async function getUserComplete(id: string) {
     try {
         const user = await prisma.user.findUnique({
             where: {
-                email,
+                id,
             },
+            include: {
+                List: true,
+                Favorite: true,
+            }
         })
         
         if(!user) throw new Error("User not found");
     
-        const list = await prisma.list.findMany({
-            where: {
-                userId: user.id,
-            },
-        })
-    
-        const favorites = await prisma.favorite.findMany({
-            where: {
-                userId: user.id,
-            },
-        })
-    
-        return { ...user, ...list, ...favorites};
+        return user;
     } catch (error) {
         return error;
     }

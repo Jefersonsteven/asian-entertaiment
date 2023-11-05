@@ -20,6 +20,9 @@ export async function getList(id: string) {
             where: {
                 id,
             },
+            include: {
+                ListItems: true,
+            }
         })
         
         return list;

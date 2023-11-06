@@ -1,9 +1,9 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server"
 
 export async function GET(request: NextRequest, context: any) {
-    const url = new URL(request.url);
-    const id = context.params.id;
-    const type = url.searchParams.get('type');
+    const url = new URL(request.url)
+    const id = context.params.id
+    const type = url.searchParams.get('type')
 
     try {
         const options = {
@@ -12,7 +12,7 @@ export async function GET(request: NextRequest, context: any) {
               accept: 'application/json',
               Authorization: `Bearer ${process.env.API_TMDB_KEY}`
             }
-        };
+        }
         
         const contentDetail = await fetch(`${process.env.API_TMDB_URL}/${type}/${id}?language=en-US`, options)
         const contentDetailCredits = await fetch(`${process.env.API_TMDB_URL}/${type}/${id}/credits?language=en-US`, options)
@@ -26,7 +26,7 @@ export async function GET(request: NextRequest, context: any) {
             recommendations: await contentRecommendations.json()
         }
 
-        return NextResponse.json(response);
+        return NextResponse.json(response)
     } catch (error) {
         return NextResponse.json({
             message: 'Error in the server',

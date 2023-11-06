@@ -1,4 +1,4 @@
-import { prisma } from "@/app/lib/prisma";
+import { prisma } from "@/app/lib/prisma"
 
 export async function createList(name: string, userId: string) {
     try {
@@ -8,9 +8,9 @@ export async function createList(name: string, userId: string) {
                 userId,
             },
         })
-        return list;
+        return list
     } catch (error) {
-        return error;
+        return error
     }
 }
 
@@ -25,9 +25,9 @@ export async function getList(id: string) {
             }
         })
         
-        return list;
+        return list
     } catch (error) {
-        return error;
+        return error
     }
 }
 
@@ -38,7 +38,7 @@ export async function deleteList(id: string) {
                 id,
             },
         })
-        return list;
+        return list
     } catch (error) {
-        return error;
+        return error
     }}

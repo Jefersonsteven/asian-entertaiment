@@ -1,6 +1,6 @@
-import { prisma } from "@/app/lib/prisma";
-import encryptPassword from "./encryptPassword";
-import { UserUpdate } from "@/app/lib/types/user";
+import { prisma } from "@/app/lib/prisma"
+import encryptPassword from "./encryptPassword"
+import { UserUpdate } from "@/app/lib/types/user"
 
 export async function createUser(email: string, password: string) {
 
@@ -11,9 +11,9 @@ export async function createUser(email: string, password: string) {
                 password: await encryptPassword(password),
             },
         })
-        return user;
+        return user
     } catch (error) {
-        return error;
+        return error
     }
 }
 
@@ -25,9 +25,9 @@ export async function getUser(email: string) {
             },
         })
         
-        return user;
+        return user
     } catch (error) {
-        return error;
+        return error
     }
 }
 
@@ -43,11 +43,11 @@ export async function getUserComplete(id: string) {
             }
         })
         
-        if(!user) throw new Error("User not found");
+        if(!user) throw new Error("User not found")
     
-        return user;
+        return user
     } catch (error) {
-        return error;
+        return error
     }
 }
 
@@ -58,9 +58,9 @@ export async function deleteUser(email: string) {
                 email,
             },
         })
-        return user;
+        return user
     } catch (error) {
-        return error;
+        return error
     }
 }
 
@@ -72,8 +72,8 @@ export async function updateUser(email: string, data: UserUpdate) {
             },
             data,
         })
-        return user;
+        return user
     } catch (error) {
-        return error;
+        return error
     }
 }

@@ -6,12 +6,13 @@ export async function creatItemList(listId: string, contentId: string, name: str
     try {
         const isCreated = await prisma.listItem.findFirst({
             where: {
+                listId,
                 contentId
             }
         })
 
         if (isCreated) {
-            return "Favorite already created"
+            return "List Item already created"
         }
 
         const listItem = await prisma.listItem.create({

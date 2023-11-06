@@ -1,5 +1,5 @@
 -- CreateEnum
-CREATE TYPE "StreamingProvider" AS ENUM ('disneyPlus', 'netflix', 'amazonPrime', 'hbo', 'hulu', 'appleTv', 'peacock', 'paramountPlus', 'youtube', 'doramasGo', 'rakutenViki', 'HiTV', 'weTV', 'youku', 'iqiyi', 'doramasPrincess', 'doramasflix')
+CREATE TYPE "StreamingProvider" AS ENUM ('disneyPlus', 'netflix', 'amazonPrime', 'hbo', 'hulu', 'appleTv', 'peacock', 'paramountPlus', 'youtube', 'doramasGo', 'rakutenViki', 'HiTV', 'weTV', 'youku', 'iqiyi', 'doramasPrincess', 'doramasflix');
 
 -- CreateTable
 CREATE TABLE "User" (
@@ -14,7 +14,7 @@ CREATE TABLE "User" (
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
-)
+);
 
 -- CreateTable
 CREATE TABLE "Link" (
@@ -24,7 +24,7 @@ CREATE TABLE "Link" (
     "url" TEXT NOT NULL,
 
     CONSTRAINT "Link_pkey" PRIMARY KEY ("id")
-)
+);
 
 -- CreateTable
 CREATE TABLE "Links" (
@@ -34,7 +34,7 @@ CREATE TABLE "Links" (
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Links_pkey" PRIMARY KEY ("id")
-)
+);
 
 -- CreateTable
 CREATE TABLE "ListItem" (
@@ -47,7 +47,7 @@ CREATE TABLE "ListItem" (
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "ListItem_pkey" PRIMARY KEY ("id")
-)
+);
 
 -- CreateTable
 CREATE TABLE "List" (
@@ -58,7 +58,7 @@ CREATE TABLE "List" (
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "List_pkey" PRIMARY KEY ("id")
-)
+);
 
 -- CreateTable
 CREATE TABLE "Favorite" (
@@ -71,19 +71,22 @@ CREATE TABLE "Favorite" (
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Favorite_pkey" PRIMARY KEY ("id")
-)
+);
 
 -- CreateIndex
-CREATE UNIQUE INDEX "User_email_key" ON "User"("email")
+CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Links_contentId_key" ON "Links"("contentId");
 
 -- AddForeignKey
-ALTER TABLE "Link" ADD CONSTRAINT "Link_linksId_fkey" FOREIGN KEY ("linksId") REFERENCES "Links"("id") ON DELETE RESTRICT ON UPDATE CASCADE
+ALTER TABLE "Link" ADD CONSTRAINT "Link_linksId_fkey" FOREIGN KEY ("linksId") REFERENCES "Links"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "ListItem" ADD CONSTRAINT "ListItem_listId_fkey" FOREIGN KEY ("listId") REFERENCES "List"("id") ON DELETE RESTRICT ON UPDATE CASCADE
+ALTER TABLE "ListItem" ADD CONSTRAINT "ListItem_listId_fkey" FOREIGN KEY ("listId") REFERENCES "List"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "List" ADD CONSTRAINT "List_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE
+ALTER TABLE "List" ADD CONSTRAINT "List_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Favorite" ADD CONSTRAINT "Favorite_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE
+ALTER TABLE "Favorite" ADD CONSTRAINT "Favorite_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

@@ -54,7 +54,7 @@ model Link {
 
 model Links {
   id        String   @id @default(uuid())
-  contentId String
+  contentId String   @unique
   urls      Link[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

@@ -30,6 +30,12 @@ enum StreamingProvider {
   doramasflix
 }
 
+enum Type {
+  basic
+  premium
+  pro
+}
+
 model User {
   id        String     @id @default(uuid())
   email     String     @unique
@@ -42,6 +48,8 @@ model User {
   updatedAt DateTime   @updatedAt
   lists     List[]
   favorites Favorite[]
+  admin     Boolean    @default(false)
+  type      Type       @default(basic)
 }
 
 model Link {

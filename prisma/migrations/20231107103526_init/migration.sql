@@ -1,6 +1,9 @@
 -- CreateEnum
 CREATE TYPE "StreamingProvider" AS ENUM ('disneyPlus', 'netflix', 'amazonPrime', 'hbo', 'hulu', 'appleTv', 'peacock', 'paramountPlus', 'youtube', 'doramasGo', 'rakutenViki', 'HiTV', 'weTV', 'youku', 'iqiyi', 'doramasPrincess', 'doramasflix');
 
+-- CreateEnum
+CREATE TYPE "Type" AS ENUM ('basic', 'premium', 'pro');
+
 -- CreateTable
 CREATE TABLE "User" (
     "id" TEXT NOT NULL,
@@ -12,6 +15,8 @@ CREATE TABLE "User" (
     "verified" BOOLEAN NOT NULL DEFAULT false,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
+    "admin" BOOLEAN NOT NULL DEFAULT false,
+    "type" "Type" NOT NULL DEFAULT 'basic',
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );

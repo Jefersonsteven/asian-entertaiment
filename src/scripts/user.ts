@@ -38,8 +38,12 @@ export async function getUserComplete(id: string) {
                 id,
             },
             include: {
-                List: true,
-                Favorite: true,
+                lists: {
+                    include: {
+                        items: true,
+                    },
+                },
+                favorites: true,
             }
         })
         

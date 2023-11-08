@@ -9,6 +9,10 @@ export default function ButtonLogin() {
         signIn()
     }
 
+    function handleClickGoogle() {
+        signIn('google')
+    }
+
     function handleClick2() {
         signOut()
     }
@@ -30,12 +34,20 @@ export default function ButtonLogin() {
                     Cerrar sesión
                 </button>
             ) : (
-                <button
-                    onClick={handleClick} 
-                    className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
-                >
-                    Iniciar sesión
-                </button>
+                <div className='flex gap-4'>
+                    <button
+                        onClick={handleClickGoogle} 
+                        className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded'
+                    >
+                        Iniciar sesión con Google
+                    </button>
+                    <button
+                        onClick={handleClick} 
+                        className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+                    >
+                        Iniciar sesión
+                    </button>
+                </div>
             )}
         </>
     )

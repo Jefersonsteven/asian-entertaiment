@@ -27,7 +27,7 @@ export async function createFavorite(
         })
         return favorite
     } catch (error) {
-        return error
+        throw error
     }
 }
 

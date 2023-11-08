@@ -7,7 +7,7 @@ export async function POST(request: NextRequest) {
 
     try {
         const listItem = await creatItemList(listId, contentId, name, image )
-        if(listItem === "Favorite already created") return NextResponse.json({ message: listItem }, { status: 400 })
+        if(listItem === "List Item already created") return NextResponse.json({ message: listItem }, { status: 400 })
         return NextResponse.json(listItem, { status: 201 })
     } catch (error) {
         return NextResponse.json({ message: "Error Server",error }, { status: 500 })

@@ -4,6 +4,7 @@ import { UserUpdate } from "@/app/lib/types/user"
 import { User } from "@prisma/client"
 
 export async function createUser(email: string, password: string) {
+    
 
     try {
         const user = await prisma.user.create({
@@ -12,9 +13,11 @@ export async function createUser(email: string, password: string) {
                 password: await encryptPassword(password),
             },
         })
+        console.log(user);
+        
         return user
     } catch (error) {
-        return error
+        throw error
     }
 }
 
@@ -28,7 +31,7 @@ export async function getUser(email: string) {
         
         return user
     } catch (error) {
-        return error
+        throw error
     }
 }
 
@@ -55,7 +58,7 @@ export async function getUserComplete(id: string) {
             password: 'private',
         }
     } catch (error) {
-        return error
+        throw error
     }
 }
 
@@ -68,7 +71,7 @@ export async function deleteUser(email: string) {
         })
         return user
     } catch (error) {
-        return error
+        throw error
     }
 }
 
@@ -82,6 +85,6 @@ export async function updateUser(email: string, data: UserUpdate) {
         })
         return user
     } catch (error) {
-        return error
+        throw error
     }
 }

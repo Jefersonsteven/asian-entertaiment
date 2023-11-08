@@ -12,7 +12,7 @@ export async function createLink(linksId: string, streamingProvider: StreamingPr
         })
         return link
     } catch (error) {
-        return error
+        throw error
     }
 }
 
@@ -25,6 +25,6 @@ export async function deleteLink(id: string) {
         })
         return link
     } catch (error) {
-        return error
+        throw error
     }
 }

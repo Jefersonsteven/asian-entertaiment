@@ -10,7 +10,7 @@ export async function createList(name: string, userId: string) {
         })
         return list
     } catch (error) {
-        return error
+        throw error
     }
 }
 
@@ -21,13 +21,13 @@ export async function getList(id: string) {
                 id,
             },
             include: {
-                ListItems: true,
+                items: true,
             }
         })
         
         return list
     } catch (error) {
-        return error
+        throw error
     }
 }
 
@@ -40,5 +40,5 @@ export async function deleteList(id: string) {
         })
         return list
     } catch (error) {
-        return error
+        throw error
     }}

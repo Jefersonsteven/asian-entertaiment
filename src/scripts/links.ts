@@ -9,7 +9,7 @@ export async function createLinks(contentId: string) {
         })
         return links
     } catch (error) {
-        return error
+        throw error
     }
 }
 
@@ -26,7 +26,7 @@ export async function getLinks(contentId: string) {
         
         return links
     } catch (error) {
-        return error
+        throw error
     }
 }
 
@@ -40,6 +40,6 @@ export async function deleteLinks(id: string) {
         
         return link
     } catch (error) {
-        return error
+        throw error
     }
 }

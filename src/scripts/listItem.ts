@@ -25,7 +25,7 @@ export async function creatItemList(listId: string, contentId: string, name: str
         })
         return listItem
     } catch (error) {
-        return error
+        throw error
     }
 } 
 
@@ -38,6 +38,6 @@ export async function deleteItemList(id: string) {
         })
         return listItem
     } catch (error) {
-        return error
+        throw error
     }
 }

@@ -38,9 +38,9 @@ const handler = NextAuth ({
         },
         signIn: async ({ account, user }) => {
             if(user && account?.provider === "google" && user?.email) {
-                const userResponse = await getUser(user.email)
-                if(userResponse) return true
-                const newUser = await createUser(user.email, crypto.randomUUID())
+                const userResponse = await getUser(user.email) as User
+                if(userResponse && await comparePassword(user.id, userResponse.password)) return true
+                const newUser = await createUser(user.email, user.id)
                 if(newUser) {
                     const updatedUser = await updateUser(user.email, {
                         name: user.name ?? '',

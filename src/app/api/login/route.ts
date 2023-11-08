@@ -1,6 +1,7 @@
 import comparePassword from "@/scripts/comparePassword"
 import { createTokenSession } from "@/scripts/tokenSession"
 import { getUser } from "@/scripts/user"
+import { User } from "@prisma/client"
 import { NextRequest, NextResponse } from "next/server"
 
 export async function POST(request: NextRequest) {
@@ -8,7 +9,7 @@ export async function POST(request: NextRequest) {
     const { email, password } = body
 
     try {
-        const user = await getUser(email)
+        const user = await getUser(email) as User
 
         if(!user) {
             return NextResponse.json('Login failed, user not found', { status: 404 })

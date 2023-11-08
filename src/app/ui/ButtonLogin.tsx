@@ -1,6 +1,6 @@
 'use client'
 import { signIn, signOut, useSession } from 'next-auth/react'
-import { use, useEffect } from 'react'
+import { useEffect } from 'react'
 
 export default function ButtonLogin() {
     const {data: session, status} = useSession()

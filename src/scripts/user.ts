@@ -1,6 +1,7 @@
 import { prisma } from "@/app/lib/prisma"
 import encryptPassword from "./encryptPassword"
 import { UserUpdate } from "@/app/lib/types/user"
+import { User } from "@prisma/client"
 
 export async function createUser(email: string, password: string) {
 
@@ -49,7 +50,10 @@ export async function getUserComplete(id: string) {
         
         if(!user) throw new Error("User not found")
     
-        return user
+        return {
+            ...user,
+            password: 'private',
+        }
     } catch (error) {
         return error
     }

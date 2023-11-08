@@ -1,7 +1,6 @@
 import { deleteUser, getUser, updateUser } from "@/scripts/user"
+import { User } from "@prisma/client"
 import { NextRequest, NextResponse } from "next/server"
-
-
 
 export async function GET(request: NextRequest) {
     const url = new URL(request.nextUrl)

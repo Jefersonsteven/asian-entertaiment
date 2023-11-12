@@ -36,6 +36,19 @@ import FlagThailand from '../../../public/assets/flags/Thailand.svg';
 import FlagVietnam from '../../../public/assets/flags/Vietnam.svg';
 import FlagInfonesia from '../../../public/assets/flags/Indonesia.svg';
 import FlagPhilippines from '../../../public/assets/flags/Philippines.svg';
+import Disney from '../../../public/assets/logos/Disney+-logo.svg';
+import Doramasflix from '../../../public/assets/logos/Doramaflix-logo.svg';
+import Doramasqueen from '../../../public/assets/logos/Doramasqueen-logo.svg';
+import Doramaswow from '../../../public/assets/logos/Doramaswow-logo.svg';
+import Hbo from '../../../public/assets/logos/HBO-logo.svg';
+import Hitv from '../../../public/assets/logos/HiTV-logo.svg';
+import Iqiyi from '../../../public/assets/logos/IQIYI-logo.svg';
+import Mangotv from '../../../public/assets/logos/Mango-TV-logo.svg';
+import Netflix from '../../../public/assets/logos/Netflix-logo.svg';
+import RakutenViki from '../../../public/assets/logos/Rakuten-Viki-logo.svg';
+import Wetv from '../../../public/assets/logos/WeTV-logo.svg';
+import Youku from '../../../public/assets/logos/Youku-logo.svg';
+
 import { Icon } from './types/icon';
 
 export default function getIcon(icon: Icon) {
@@ -153,6 +166,42 @@ export default function getIcon(icon: Icon) {
 
         case "flag-philippines":
             return <FlagPhilippines />
+
+        case "disney":
+            return <Disney />
+
+        case "doramasflix":
+            return <Doramasflix />
+
+        case "doramasqueen":
+            return <Doramasqueen />
+
+        case "doramaswow":
+            return <Doramaswow />
+
+        case "hbo":
+            return <Hbo />
+
+        case "hitv":
+            return <Hitv />
+
+        case "iqiyi":
+            return <Iqiyi />
+
+        case "mangotv":
+            return <Mangotv />
+
+        case "netflix":
+            return <Netflix />
+
+        case "rakuten-viki":
+            return <RakutenViki />
+
+        case "wetv":
+            return <Wetv />
+
+        case "youku":
+            return <Youku />
 
         default:
             return <p>😊</p>

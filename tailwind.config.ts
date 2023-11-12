@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      strokeWidth: {
+        3: '3px',
+      },
       colors: {
         primary: {
           500: '#FF4163',

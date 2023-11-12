@@ -1,0 +1,1 @@
+export type Icon = 'arrow-left' | 'arrow-right' | 'sort' | 'google' | 'instagram' | 'youtube' | 'twitter' | 'chevron-left' | 'chevron-right' | 'circle-check' | 'tv' | 'eye-closed' | 'eye' | 'warning' | 'help' | 'home' | 'info' | 'edit-photo' | 'play' | 'add-playlist' | 'plus' | 'search' | 'settings' | 'sort-ascending' | 'sort-descending' | 'star' | 'trash' | 'user' | 'close'

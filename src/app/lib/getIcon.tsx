@@ -53,155 +53,155 @@ import { Icon } from './types/icon';
 
 export default function getIcon(icon: Icon) {
     switch (icon) {
-        case "arrow-left":
-            return <ArrowLeft />
+        // case "arrow-left":
+        //     return <ArrowLeft />
 
-        case "arrow-right":
-            return <ArrowRight />
+        // case "arrow-right":
+        //     return <ArrowRight />
 
-        case "sort":
-            return <Sort />
+        // case "sort":
+        //     return <Sort />
 
-        case "google":
-            return <Google />
+        // case "google":
+        //     return <Google />
 
-        case "instagram":
-            return <Instagram />
+        // case "instagram":
+        //     return <Instagram />
 
-        case "youtube":
-            return <Youtube />
+        // case "youtube":
+        //     return <Youtube />
 
-        case "twitter":
-            return <Twitter />
+        // case "twitter":
+        //     return <Twitter />
 
-        case "chevron-left":
-            return <ChevronLeft />
+        // case "chevron-left":
+        //     return <ChevronLeft />
 
-        case "chevron-right":
-            return <ChevronRight />
+        // case "chevron-right":
+        //     return <ChevronRight />
 
-        case "circle-check":
-            return <CirculeCheck />
+        // case "circle-check":
+        //     return <CirculeCheck />
 
-        case "tv":
-            return <Tv />
+        // case "tv":
+        //     return <Tv />
 
-        case "eye-closed":
-            return <EyeClosed />
+        // case "eye-closed":
+        //     return <EyeClosed />
 
-        case "eye":
-            return <Eye />
+        // case "eye":
+        //     return <Eye />
 
-        case "warning":
-            return <Warning />
+        // case "warning":
+        //     return <Warning />
 
-        case "help":
-            return <Help />
+        // case "help":
+        //     return <Help />
 
-        case "home":
-            return <Home />
+        // case "home":
+        //     return <Home />
 
-        case "info":
-            return <Info />
+        // case "info":
+        //     return <Info />
 
-        case "edit-photo":
-            return <EditPhoto />
+        // case "edit-photo":
+        //     return <EditPhoto />
 
-        case "play":
-            return <Play />
+        // case "play":
+        //     return <Play />
 
-        case "add-playlist":
-            return <AddPlayList />
+        // case "add-playlist":
+        //     return <AddPlayList />
 
-        case "plus":
-            return <Plus />
+        // case "plus":
+        //     return <Plus />
 
-        case "search":
-            return <Search />
+        // case "search":
+        //     return <Search />
 
-        case "settings":
-            return <Settings />
+        // case "settings":
+        //     return <Settings />
 
-        case "sort-ascending":
-            return <SortAscending />
+        // case "sort-ascending":
+        //     return <SortAscending />
 
-        case "sort-descending":
-            return <SortDescending />
+        // case "sort-descending":
+        //     return <SortDescending />
 
-        case "star":
-            return <Start />
+        // case "star":
+        //     return <Start />
 
-        case "trash":
-            return <Trash />
+        // case "trash":
+        //     return <Trash />
 
-        case "user":
-            return <User />
+        // case "user":
+        //     return <User />
 
-        case "close":
-            return <Close />
+        // case "close":
+        //     return <Close />
 
-        case "flag-china":
-            return <FlagChina />
+        // case "flag-china":
+        //     return <FlagChina />
 
-        case "flag-hongkong":
-            return <FlagHonkong />
+        // case "flag-hongkong":
+        //     return <FlagHonkong />
 
-        case "flag-japan":
-            return <FlagJapan />
+        // case "flag-japan":
+        //     return <FlagJapan />
 
-        case "flag-korea":
-            return <FlagKorea />
+        // case "flag-korea":
+        //     return <FlagKorea />
 
-        case "flag-taiwan":
-            return <FlagTaiwan />
+        // case "flag-taiwan":
+        //     return <FlagTaiwan />
 
-        case "flag-thailand":
-            return <FlagThailand />
+        // case "flag-thailand":
+        //     return <FlagThailand />
 
-        case "flag-vietnam":
-            return <FlagVietnam />
+        // case "flag-vietnam":
+        //     return <FlagVietnam />
 
-        case "flag-indonesia":
-            return <FlagInfonesia />
+        // case "flag-indonesia":
+        //     return <FlagInfonesia />
 
-        case "flag-philippines":
-            return <FlagPhilippines />
+        // case "flag-philippines":
+        //     return <FlagPhilippines />
 
-        case "disney":
-            return <Disney />
+        // case "disney":
+        //     return <Disney />
 
-        case "doramasflix":
-            return <Doramasflix />
+        // case "doramasflix":
+        //     return <Doramasflix />
 
-        case "doramasqueen":
-            return <Doramasqueen />
+        // case "doramasqueen":
+        //     return <Doramasqueen />
 
-        case "doramaswow":
-            return <Doramaswow />
+        // case "doramaswow":
+        //     return <Doramaswow />
 
-        case "hbo":
-            return <Hbo />
+        // case "hbo":
+        //     return <Hbo />
 
-        case "hitv":
-            return <Hitv />
+        // case "hitv":
+        //     return <Hitv />
 
-        case "iqiyi":
-            return <Iqiyi />
+        // case "iqiyi":
+        //     return <Iqiyi />
 
-        case "mangotv":
-            return <Mangotv />
+        // case "mangotv":
+        //     return <Mangotv />
 
-        case "netflix":
-            return <Netflix />
+        // case "netflix":
+        //     return <Netflix />
 
-        case "rakuten-viki":
-            return <RakutenViki />
+        // case "rakuten-viki":
+        //     return <RakutenViki />
 
-        case "wetv":
-            return <Wetv />
+        // case "wetv":
+        //     return <Wetv />
 
-        case "youku":
-            return <Youku />
+        // case "youku":
+        //     return <Youku />
 
         default:
             return <p>😊</p>

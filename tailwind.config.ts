@@ -47,13 +47,13 @@ const config: Config = {
         blue: '#0C9BFF',
       },
       fontSize: {
-        'heading': '3.2rem',
+        heading: '3.2rem',
         'heading-mobile': '2.4rem',
-        'subheading': '2rem',
+        subheading: '2rem',
         'subheading-mobile': '1.6rem',
-        'text': '1.4rem',
-        'action': '1.6rem',
-        'caption': '1.2rem',
+        text: '1.4rem',
+        action: '1.6rem',
+        caption: '1.2rem',
       },
     }
   },

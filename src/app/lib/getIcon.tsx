@@ -27,6 +27,15 @@ import Start from '../../../public/assets/icons/icon _star_.svg';
 import Trash from '../../../public/assets/icons/icon _trash_.svg';
 import User from '../../../public/assets/icons/icon _user_.svg';
 import Close from '../../../public/assets/icons/icon _x letter_.svg';
+import FlagChina from '../../../public/assets/flags/China.svg';
+import FlagHonkong from '../../../public/assets/flags/HongKong.svg';
+import FlagJapan from '../../../public/assets/flags/Japan.svg';
+import FlagKorea from '../../../public/assets/flags/South-Korea.svg';
+import FlagTaiwan from '../../../public/assets/flags/Taiwan.svg';
+import FlagThailand from '../../../public/assets/flags/Thailand.svg';
+import FlagVietnam from '../../../public/assets/flags/Vietnam.svg';
+import FlagInfonesia from '../../../public/assets/flags/Indonesia.svg';
+import FlagPhilippines from '../../../public/assets/flags/Philippines.svg';
 import { Icon } from './types/icon';
 
 export default function getIcon(icon: Icon) {
@@ -117,6 +126,33 @@ export default function getIcon(icon: Icon) {
 
         case "close":
             return <Close />
+
+        case "flag-china":
+            return <FlagChina />
+
+        case "flag-hongkong":
+            return <FlagHonkong />
+
+        case "flag-japan":
+            return <FlagJapan />
+
+        case "flag-korea":
+            return <FlagKorea />
+
+        case "flag-taiwan":
+            return <FlagTaiwan />
+
+        case "flag-thailand":
+            return <FlagThailand />
+
+        case "flag-vietnam":
+            return <FlagVietnam />
+
+        case "flag-indonesia":
+            return <FlagInfonesia />
+
+        case "flag-philippines":
+            return <FlagPhilippines />
 
         default:
             return <p>😊</p>

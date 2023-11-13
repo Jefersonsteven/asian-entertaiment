@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply w-screen h-screen;
+  @apply w-screen h-screen text-white;
   background: linear-gradient(180deg, #0b011d 0%, #030009 100%);
 }
 
@@ -35,4 +35,12 @@ svg {
 
 .btn-success {
   @apply bg-success-600 hover:bg-success-700 text-white font-bold;
+}
+
+.btn-navigation {
+  @apply p-3;
+}
+
+.btn-navigation--active {
+  @apply bg-white rounded-2xl;
 }

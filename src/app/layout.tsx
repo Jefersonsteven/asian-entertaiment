@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { League_Spartan } from 'next/font/google'
 import '@/app/ui/global.css'
 import { Providers } from './ui/Providers/Providers'
+import NavigationMobile from './ui/navigation/NavigationMobile'
+import React from 'react'
 
 const leagueSpartan = League_Spartan({ subsets: ['latin'] })
 
@@ -10,15 +12,15 @@ export const metadata: Metadata = {
   description: 'Asian Entertainment',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({children}: {children: React.ReactNode}) {
+  
   return (
     <html lang="en">
       <Providers>
-         <body className={leagueSpartan.className}>{children}</body>
+         <body className={leagueSpartan.className}>
+              <NavigationMobile/>
+            {children}
+         </body>
       </Providers>
     </html>
   )

@@ -14,6 +14,7 @@ import Eye from '../../../public/assets/icons/icon _eye_.svg';
 import Warning from '../../../public/assets/icons/icon _help triangle_.svg';
 import Help from '../../../public/assets/icons/icon _help_.svg';
 import Home from '../../../public/assets/icons/icon _home_.svg';
+import Menu from '../../../public/assets/icons/icon _menu _.svg';
 import Info from '../../../public/assets/icons/icon _info circle_.svg';
 import EditPhoto from '../../../public/assets/icons/icon _photo edit_.svg';
 import Play from '../../../public/assets/icons/icon _player play_.svg';
@@ -100,6 +101,9 @@ export default function getIcon(icon: Icon) {
 
         case "home":
             return <Home />
+
+        case "menu":
+            return <Menu />
 
         case "info":
             return <Info />

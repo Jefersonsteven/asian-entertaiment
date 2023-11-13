@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply w-screen h-screen text-white overflow-x-hidden;
+  @apply w-screen h-screen text-white overflow-x-hidden lg:flex;
   background: linear-gradient(180deg, #0b011d 0%, #030009 100%);
 }
 
@@ -42,5 +42,5 @@ svg {
 }
 
 .btn-navigation--active {
-  @apply bg-white rounded-2xl;
+  @apply bg-white text-black rounded-2xl;
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Search from "../Search";
+import clsx from "clsx";
 
 export default function NavigationMobile() {
     const route = usePathname()
@@ -30,25 +31,35 @@ export default function NavigationMobile() {
             <footer className="flex w-full justify-around fixed bottom-0 left-0 bg-secondary-600 px-4 py-2">
                 <Link
                     onClick={closeSearch} 
-                    className={`btn-navigation ${route === '/' ? 'btn-navigation--active' : ''}`} 
+                    className={clsx("btn-navigation", {
+                        'btn-navigation--active': route === '/'
+                    })}  
                     href="/"> {getIcon('home')}
                 </Link>
 
                 <Link
                     onClick={closeSearch} 
-                    className={`btn-navigation ${segment === 'explore' ? 'btn-navigation--active' : ''}`}
+                    className={clsx("btn-navigation", {
+                        'btn-navigation--active': segment === 'explore'
+                    })
+                    }
                     href="/explore"> {getIcon('tv')}
                 </Link>
 
 
                 <button
                     onClick={() => setOpenSearch(!openSearch)}
-                    className={`btn-navigation ${openSearch ? 'btn-navigation--active' : ''}`}> {getIcon('search')}
+                    className={clsx("btn-navigation", {
+                        'btn-navigation--active': openSearch
+                    })}
+                        > {getIcon('search')}
                 </button>
 
                 <Link
                     onClick={closeSearch} 
-                    className={`btn-navigation ${segment === 'profile' ? 'btn-navigation--active' : ''}`} 
+                    className={clsx("btn-navigation", {
+                        'btn-navigation--active': segment === 'profile'
+                    })}
                     href="/profile/1"> {getIcon('user')}
                 </Link>
             </footer>

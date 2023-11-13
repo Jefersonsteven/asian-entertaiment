@@ -20,7 +20,7 @@ export default function NavigationDesktop() {
         <aside className="hidden lg:flex lg:flex-col p-4 w-max">
             <nav className="flex flex-col py-3">
                 <button
-                    className="btn-navigation"
+                    className="p-3"
                     onClick={() => setOpenMenu(prev => !prev)}>
                     {getIcon('menu')}
                 </button>

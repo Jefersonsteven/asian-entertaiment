@@ -3,6 +3,7 @@ import getIcon from "@/app/lib/getIcon";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import Search from "../Search";
 
 export default function NavigationMobile() {
     const route = usePathname()
@@ -20,7 +21,12 @@ export default function NavigationMobile() {
                     onClick={closeSearch} href="/">{getIcon('youtube')}</Link>
                 <button>{getIcon('settings')}</button>
             </header>
-            {openSearch && <div className=" absolute w-full h-[100%] top-0 left-0 bg-secondary-600">Search ...</div>}
+
+            {openSearch && 
+            <div className="flex flex-col gap-4 absolute w-full h-[100%] top-0 left-0 bg-secondary-600 px-4 py-8">
+                <Search/>
+            </div>}
+
             <footer className="flex w-full justify-around fixed bottom-0 left-0 bg-secondary-600 px-4 py-2">
                 <Link
                     onClick={closeSearch} 

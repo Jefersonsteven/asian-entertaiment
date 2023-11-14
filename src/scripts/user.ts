@@ -13,7 +13,6 @@ export async function createUser(email: string, password: string) {
                 password: await encryptPassword(password),
             },
         })
-        console.log(user);
         
         return user
     } catch (error) {

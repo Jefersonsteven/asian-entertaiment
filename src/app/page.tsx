@@ -1,4 +1,4 @@
-import SliderTrailerBanner from "./ui/home/SliderTrailerBanner";
+import SliderTrailerBanner from "./ui/home/SliderBanner";
 
 export default function Home() {
 

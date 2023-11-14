@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 body {
-  @apply w-screen h-screen text-white overflow-x-hidden lg:flex;
-  background: linear-gradient(180deg, #0b011d 0%, #030009 100%);
+  @apply w-screen h-screen text-white overflow-x-hidden lg:flex bg-no-repeat bg-fixed;
+  background-image: linear-gradient(180deg, #0b011d 0%, #030009 100%);
 }
 
 svg {

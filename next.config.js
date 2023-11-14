@@ -28,6 +28,17 @@ const nextConfig = {
 
     return config;
   },
+  env: {
+    NEXT_DEPLOYMENT_URL: process.env.NEXT_DEPLOYMENT_URL,
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.themoviedb.org',
+      }
+    ],
+  }
 };
 
 module.exports = nextConfig;

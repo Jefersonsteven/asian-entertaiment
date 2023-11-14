@@ -1,8 +1,10 @@
+import SliderTrailerBanner from "./ui/home/SliderTrailerBanner";
+
 export default function Home() {
 
   return (
    <main>
-    Inicio
+     <SliderTrailerBanner />
    </main>
   )
 }

@@ -3,18 +3,13 @@ import getIcon from "@/app/lib/getIcon";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import Search from "../Search";
+
 import clsx from "clsx";
 
 export default function NavigationDesktop() {
     const route = usePathname()
     const segment = route.split('/')[1]
-    const [openSearch, setOpenSearch] = useState(false)
     const [openMenu, setOpenMenu] = useState(false)
-
-    function closeSearch() {
-        setOpenSearch(false)
-    }
     
     return (
         <aside className="hidden lg:flex lg:flex-col p-4 w-max">

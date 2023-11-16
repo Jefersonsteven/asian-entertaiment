@@ -44,3 +44,7 @@ svg {
 .btn-navigation--active {
   @apply bg-white text-black rounded-2xl;
 }
+
+.slider {
+  scrollbar-width: none;
+}

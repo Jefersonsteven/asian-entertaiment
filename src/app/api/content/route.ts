@@ -31,7 +31,6 @@ export async function GET(request: NextRequest) {
             date.setDate(date.getDate() + Number(params.next))
             date = date.toISOString().split('T')[0]
         }
-        console.log(date)
 
         const responsePrincipal = await fetch(`${API_TMDB_URL}/discover/${params.type || 'tv'}?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${params.page || 1}&sort_by=${params.sort || 'popularity.desc'}&with_origin_country=${params.country || 'KR'}${params.genres ? `&with_genres=${params.genres}` : ''}${params.status ? `&with_status${params.status}` : ''}${params.next ? `&first_air_date.gte=${date}` : ''}`, options)
         const dataPrincipal = await responsePrincipal.json()

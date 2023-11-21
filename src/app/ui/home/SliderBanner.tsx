@@ -23,7 +23,7 @@ export default function SliderBanner() {
     
     return (
         <SuspenseClient fallback={<div>Slider Skeleton ...</div>} condition={content ? true : false}>
-            <div className="flex justify-center lg:w-full lg:rounded-2xl overflow-hidden">
+            <div className=" lg:rounded-2xl overflow-hidden">
                 <Swiper
                     spaceBetween={0}
                     centeredSlides={true}

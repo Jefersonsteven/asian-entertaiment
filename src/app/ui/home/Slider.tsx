@@ -44,7 +44,7 @@ export default function Slider() {
 
                 >
                     {content?.results?.map((tv, index) => (
-                            <SwiperSlide key={tv.id}>
+                            <SwiperSlide key={tv.id} className=" min-w-[87px] max-w-[198px]">
                                 <div className="relative">
                                     <SliderItem tv={tv} />
                                     <h3 className="absolute top-0 left-2 text-primary-600 font-bold text-heading">{index + 1}</h3>

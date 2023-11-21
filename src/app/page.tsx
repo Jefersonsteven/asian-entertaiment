@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 export default function Home() {
 
   return (
-   <main>
+   <main className="flex flex-col gap-8 lg:items-center">
      <SliderTrailerBanner />
      <SliderTop10 />
    </main>

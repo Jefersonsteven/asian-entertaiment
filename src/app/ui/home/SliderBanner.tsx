@@ -1,7 +1,5 @@
 'use client'
 import { ContentTv } from "@/app/lib/types/tvs"
-import Image from "next/image"
-import Link from "next/link"
 import React from "react"
 import SuspenseClient from "../SuspenseClient"
 import {Swiper, SwiperSlide} from "swiper/react"
@@ -25,7 +23,7 @@ export default function SliderBanner() {
     
     return (
         <SuspenseClient fallback={<div>Slider Skeleton ...</div>} condition={content ? true : false}>
-            <div className="max-w-3xl">
+            <div className="flex justify-center lg:w-full lg:rounded-2xl overflow-hidden">
                 <Swiper
                     spaceBetween={0}
                     centeredSlides={true}
@@ -38,10 +36,10 @@ export default function SliderBanner() {
                     }}
                     navigation={true}
                     modules={[Autoplay, Pagination, Navigation]}
-                    className="mySwiper"
+                    className="slider"
                 >
                     {content?.results.map((tv) => (
-                            <SwiperSlide key={tv.id}>
+                            <SwiperSlide key={tv.id} className="lg:min-h-[500px] lg:rounded-2xl overflow-hidden">
                                 <SliderBannerItem tv={tv} />
                             </SwiperSlide>
                          ))}

@@ -57,7 +57,7 @@ svg {
 
 @media (width > 1024px) {
   .slider {
-    max-width: calc(100dvw - 120px);
+    max-width: calc(100dvw - 220px);
     margin: 0 !important;
   }
 }

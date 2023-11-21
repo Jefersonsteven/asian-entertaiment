@@ -7,19 +7,22 @@ import React from "react"
 export default function SliderItem({tv} : {tv: Result}) {
 
     return (
-        <article key={tv.id} className="relative">
-            <Image
-                className="absolute z-1 min-h-full object-cover w-full max-w-3xl opacity-20"
-                src={`https://www.themoviedb.org/t/p/w533_and_h300_bestv2${tv.backdrop_path}`} 
-                alt={tv.name} 
-                width={533} 
-                height={300}
-            />
-            <div className="relative z-2 grid justify-items-center gap-8 py-8 px-10 md:px-20 md:justify-items-start">
-                <h2 className="w-full text-ellipsis overflow-hidden max-h-10 md:max-h-24 text-primary-600 bg-clip-text shadow-black font-bold text-subheading md:text-heading-mobile">{tv.name}</h2>
-                <p className="w-full text-ellipsis max-h-16 overflow-hidden">{tv.overview}</p>
-                <Link className="btn btn-primary w-max" href={`/content/${tv.id}`}>Ir</Link>
-            </div>
-        </article>
+        <Link href={`/content/${tv.id}`}>
+            <article key={tv.id} className="relative flex flex-col gap-2">
+                <Image
+                    className="min-h-[115px] min-w-[87px] max-w-[198px] max-h-[265px] w-full h-full object-cover rounded-md shadow-black"
+                    src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tv.poster_path}`}  
+                    alt={tv.name} 
+                    width={533} 
+                    height={300}
+                />
+
+                <p 
+                    className="text-ellipsis overflow-hidden h-7 max-w-[198px] text-primary-600 bg-clip-text shadow-black text-subheading-mobile"
+                    >
+                    {tv.name}
+                </p>
+            </article>
+        </Link>
     )
 }

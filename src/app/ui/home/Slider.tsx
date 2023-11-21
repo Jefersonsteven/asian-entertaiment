@@ -11,7 +11,7 @@ export default function Slider() {
     const [slidesPerView, setSlidesPerView] = React.useState<number>(3)
     
     async function fetchContent() {
-        const params = '?limit=20'
+        const params = '?limit=10'
         const data = await fetch(`${process.env.NEXT_DEPLOYMENT_URL}/api/content${params}`)
         const content: ContentTv = await data.json()
         setContent(content)
@@ -21,7 +21,7 @@ export default function Slider() {
         if (window.innerWidth < 640) {
             setSlidesPerView(3)
         } else {
-            setSlidesPerView(5)
+            setSlidesPerView(6)
         }
     }
 
@@ -32,6 +32,8 @@ export default function Slider() {
     
     return (
         <SuspenseClient fallback={<div>Slider Skeleton ...</div>} condition={content ? true : false}>
+            <div className="px-4 lg:p-0">
+                <h2 className="mb-4 text-heading-mobile">Top 10</h2>
                 <Swiper
                     onResize={handleResize}
                     spaceBetween={30}
@@ -39,14 +41,18 @@ export default function Slider() {
                     slidesPerView={slidesPerView}
                     modules={[Pagination, Navigation]}
                     className="slider"
-                    
+
                 >
-                    {content?.results.map((tv) => (
+                    {content?.results?.map((tv, index) => (
                             <SwiperSlide key={tv.id}>
-                                <SliderItem tv={tv} />
+                                <div className="relative">
+                                    <SliderItem tv={tv} />
+                                    <h3 className="absolute top-0 left-2 text-primary-600 font-bold text-heading">{index + 1}</h3>
+                                </div>
                             </SwiperSlide>
                          ))}
                 </Swiper>
+            </div>
         </SuspenseClient>
     )
 }

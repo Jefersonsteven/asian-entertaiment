@@ -20,8 +20,10 @@ export default function Slider() {
     function handleResize() {
         if (window.innerWidth < 640) {
             setSlidesPerView(3)
-        } else {
-            setSlidesPerView(6)
+        } else if (window.innerWidth < 1024) {
+            setSlidesPerView(5)
+        } else if (window.innerWidth > 1224) {
+            setSlidesPerView(8)
         }
     }
 
@@ -47,7 +49,7 @@ export default function Slider() {
                             <SwiperSlide key={tv.id} className=" min-w-[87px] max-w-[198px]">
                                 <div className="relative">
                                     <SliderItem tv={tv} />
-                                    <h3 className="absolute top-0 left-2 text-primary-600 font-bold text-heading">{index + 1}</h3>
+                                    <h3 className="absolute top-0 left-0 bg-primary-600 p-2 leading-none text-white rounded-md font-bold text-heading">{index + 1}</h3>
                                 </div>
                             </SwiperSlide>
                          ))}

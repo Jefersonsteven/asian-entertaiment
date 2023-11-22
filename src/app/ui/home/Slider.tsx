@@ -6,12 +6,18 @@ import {Swiper, SwiperSlide} from "swiper/react"
 import { Pagination, Navigation } from 'swiper/modules';
 import SliderItem from "./SliderItem"
 
-export default function Slider() {
+interface Props {
+    next?: number
+    title: string
+    limit: number
+}
+
+export default function Slider({next, title, limit} : Props) {
     const [content, setContent] = React.useState<ContentTv | null>(null)
     const [slidesPerView, setSlidesPerView] = React.useState<number>(3)
     
     async function fetchContent() {
-        const params = '?limit=10'
+        const params = `?limit=${limit}${next ? `&next=${next}` : ''}${title === 'Recientes' ? '&recents=true' : ''}`
         const data = await fetch(`${process.env.NEXT_DEPLOYMENT_URL}/api/content${params}`)
         const content: ContentTv = await data.json()
         setContent(content)
@@ -30,12 +36,15 @@ export default function Slider() {
     React.useEffect(() => {
         handleResize()
         fetchContent()
-    }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
     
     return (
         <SuspenseClient fallback={<div>Slider Skeleton ...</div>} condition={content ? true : false}>
             <div className="px-4 lg:p-0">
-                <h2 className="mb-4 text-heading-mobile">Top 10</h2>
+                <h2 className="mb-4 text-heading-mobile">
+                    {title}
+                </h2>
                 <Swiper
                     onResize={handleResize}
                     spaceBetween={30}
@@ -49,7 +58,7 @@ export default function Slider() {
                             <SwiperSlide key={tv.id} className=" min-w-[87px] max-w-[198px]">
                                 <div className="relative">
                                     <SliderItem tv={tv} />
-                                    <h3 className="absolute top-0 left-0 bg-primary-600 p-2 leading-none text-white rounded-md font-bold text-heading">{index + 1}</h3>
+                                    {title === 'Top 10' && <h3 className="absolute top-0 left-0 bg-primary-600 p-2 leading-none text-white rounded-md font-bold text-heading">{index + 1}</h3>}
                                 </div>
                             </SwiperSlide>
                          ))}

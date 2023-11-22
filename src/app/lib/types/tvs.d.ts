@@ -16,7 +16,7 @@ export interface Result {
     original_name:     string;
     overview:          string;
     popularity:        number;
-    poster_path:       string;
+    poster_path:       string | null;
     vote_average:      number;
     vote_count:        number;
 }
